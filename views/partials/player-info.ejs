@@ -1,0 +1,15 @@
+<section class="player-info">
+    <div class="player-header">
+        <div>
+            <h1 class="blue"><%= selectedPlayer.first_name%></h1>
+            <h1 id="player-lastname"><%= selectedPlayer.last_name%></h1>
+        </div>
+        <h2 id="player-number" class="kanit-font"><%= selectedPlayer.jersey_number ? selectedPlayer.jersey_number : " "%></h2>
+    </div>
+    <p id="player-height" class="kanit-font"><%= selectedPlayer.height ? "Height: " + selectedPlayer.height.replace("-", "'") + '"' : " " %></p>
+    <p id="player-weight" class="kanit-font"><%= selectedPlayer.weight ? "Weight: " + selectedPlayer.weight + " lbs" : " " %></p>
+    <h2 id="player-position" class="kanit-font"><%= selectedPlayer.position ? selectedPlayer.position : " "%></h2>
+    <img id="player-image" src="/images/<%= selectedPlayer.id %>.webp" />
+    <img id="small-logo" src="/images/logo.svg" />
+    <p id="player-college" class="kanit-font"><%= selectedPlayer.college ? "College: " + selectedPlayer.college : " "%></p>
+</section>

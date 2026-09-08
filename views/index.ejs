@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+    <body>
+        <div class="flex-column container">
+            <div class="logo-wrapper">
+                <img id="big-logo" src="/images/logo.svg" aria-label="OKC Thunder logo">
+            </div>
+            <h1 id="home-title" class="ubuntu-font"> <%= thunderTeamInfo.full_name %> </h1>
+            <div class="flex sb">
+                <h2 class="thunder-info"><span>Conference:</span> <%= thunderTeamInfo.conference %> </h2>
+                <h2 class="thunder-info"><span>Division:</span> <%= thunderTeamInfo.division %></h2>
+            </div>
+        </div>
+    </body>
+</main>
+</html>

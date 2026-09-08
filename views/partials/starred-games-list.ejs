@@ -1,0 +1,14 @@
+<ul class="flex-column games container carousel">
+    <li class="game-card center liquid-glass">
+        <h2><%= thunderSchedule.nextGame.home_team.name %> vs <%= thunderSchedule.nextGame.visitor_team.name %></h2>
+        <p><%= thunderSchedule.nextGame.longDate %></p>
+        <h3 class="mt">Next Game</h3>
+    </li>
+    <% thunderSchedule.starredGames.forEach(game => { %>
+        <li class="game-card center liquid-glass">
+            <h2><%= game.home_team.name %> vs <%= game.visitor_team.name %></h2>
+            <p><%= game.longDate %></p>
+            <h3 class="mt">Starred Game</h3>
+        </li>
+    <% }); %>
+</ul>

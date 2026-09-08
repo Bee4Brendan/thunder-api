@@ -1,0 +1,13 @@
+<section class="flex-column">
+    <h1 id="player-list-title" class="kanit-font">OKC Thunder Players</h1>
+    <ul class="list">
+        <% thunderRoster.forEach(player => { %>
+            <li>
+                <h2 class="player" data-player-id="<%= player.id %>">
+                    <span class="kanit-font"><%= player.jersey_number ? player.jersey_number : "" %></span>
+                    <%= player.first_name %> <%= player.last_name %>
+                </h2>
+            </li>
+        <% }); %>
+    </ul>
+</section>

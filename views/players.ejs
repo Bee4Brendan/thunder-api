@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+    <body id="players-body">
+        <div class="row-container">
+            <!-- Show Selected Player Info or Instruct User to Select One -->
+            <% if (selectedPlayer) { %>
+                <%- include("partials/player-info.ejs") %>
+            <% } else { %>
+                <div class="flex center">
+                    <h1 class="blue">Select A Player</h1>
+                </div>
+            <% } %>
+            <!-- The List of Players (Thunder Roster) -->
+            <%- include("partials/player-list.ejs") %>
+        </div>
+        <script src="/scripts/script.js"></script>
+    </body>
+</main>
+</html>

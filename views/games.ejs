@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+    <body>
+        <div class="row-container">
+            <section>
+                <%- include("partials/starred-games-list.ejs") %>
+            </section>
+            <section class="flex-column schedule container">
+                <h1 id="schedule-title">Thunder 2026-27 Schedule</h1>
+                <%- include("partials/schedule-legend.ejs") %>
+                <%- include("partials/schedule-list.ejs") %>
+            </section>
+        </div>
+    </body>
+</main>
+</html>

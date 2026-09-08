@@ -1,0 +1,11 @@
+<div class="flex-column">
+    <ul class="schedule list">
+        <% thunderSchedule.forEach(game => { %>
+            <li>
+                <h2 class="<%= game.hasBeenPlayed ? 'past-game' : ''%> <%= game.isThunderHomeGame ? 'blue' : ''%>">
+                <%= game.gameNumber %> <!-- SPACE --> <span><%= game.date ? game.date : "" %></span> <!-- SPACE --> <%= game.home_team.name %> vs <%= game.visitor_team.name %> <!-- SPACE --> <%= game.isStarred ? '⭐ ' : '' %>
+                </h2>
+            </li>
+        <% }); %>
+    </ul>
+</div>
