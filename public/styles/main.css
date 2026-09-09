@@ -452,7 +452,6 @@ body {
     .flex-column.games.container {
         flex-direction: row;
         overflow-x: auto;
-        padding-top: 3rem;
         padding-bottom: 1px;
         padding-left: 3rem;
         padding-right: 3rem;
@@ -469,13 +468,13 @@ body {
 
 @media (max-width: 430px) {
     .list {
-        max-height: 38vh;
+        max-height: 35vh;
     }
 }
 
 @media (max-width: 390px) {
     .list {
-        max-height: 35vh;
+        max-height: 32vh;
     }
 }
 
@@ -485,7 +484,7 @@ body {
     }
 
     .list {
-        max-height: 23vh;
+        max-height: 20vh;
     }
 }
 
