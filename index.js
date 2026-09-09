@@ -8,7 +8,7 @@ const thunderID = 21;
 
 // Express Setup
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const API_URL = "https://api.balldontlie.io/v1";
 const config = {
     headers: { Authorization: process.env.BALLDONTLIE_API_KEY },
@@ -207,6 +207,6 @@ app.get("/games", getThunderSchedule, async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
