@@ -239,6 +239,7 @@ body {
     overflow-y: auto;
     scrollbar-width: none;
     padding: 1rem;
+    margin-top: 1rem;
 }
 
 #player-number {
@@ -468,13 +469,13 @@ body {
 
 @media (max-width: 430px) {
     .list {
-        max-height: 43vh;
+        max-height: 38vh;
     }
 }
 
 @media (max-width: 390px) {
     .list {
-        max-height: 40vh;
+        max-height: 35vh;
     }
 }
 
@@ -484,7 +485,7 @@ body {
     }
 
     .list {
-        max-height: 28vh;
+        max-height: 23vh;
     }
 }
 
