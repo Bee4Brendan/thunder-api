@@ -38,7 +38,6 @@ html {
 .flex-column {
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 .sb {
@@ -360,7 +359,6 @@ body {
 
     background: var(--dark-gray);
     border: 1px solid #e5e7eb;
-    border-left: 4px solid #d1d5db;
     border-radius: 10px;
 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -461,6 +459,7 @@ span {
     -webkit-backdrop-filter: blur(20px) saturate(140%);
 
     border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid #d1d5db;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.12),
         0 10px 40px rgba(0, 0, 0, 0.25);

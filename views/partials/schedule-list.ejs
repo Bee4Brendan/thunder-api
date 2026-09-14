@@ -1,7 +1,7 @@
 <ul class="schedule-list">
     <% thunderSchedule.forEach(game => { %>
         <li 
-            class="schedule-item 
+            class="schedule-item liquid-glass
                 <%= game.hasBeenPlayed ? 'past-game' : '' %> 
                 <%= game.isThunderHomeGame ? 'home-game' : 'away-game' %>"
             data-starred="<%= game.isStarred %>"
