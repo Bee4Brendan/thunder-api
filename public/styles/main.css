@@ -219,8 +219,6 @@ body {
 .row-container {
     display: flex;
     flex-direction: row;
-    height: 100%;
-    max-height: 80vh;
 }
 
 .player-info {
@@ -276,7 +274,6 @@ body {
 #game-legend {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    height: 100%;
 }
 
 .legend-square {
