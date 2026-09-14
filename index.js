@@ -196,12 +196,12 @@ app.get("/players/:id", getThunderRoster, async (req, res) => {
  * from the BALLDONTLIE API,
  *
  * @route GET /players/games
- * @returns {HTML} Rendered games.ejs page with selected player information
+ * @returns {HTML} Rendered schedule.ejs page with selected player information
  */
 app.get("/games", getThunderSchedule, async (req, res) => {
     try {
         console.log("NEXT GAME:", res.locals.thunderSchedule.nextGame);
-        res.render("games.ejs");
+        res.render("schedule.ejs");
     } catch (error) {
         console.error(error);
     }

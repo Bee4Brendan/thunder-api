@@ -1,11 +1,32 @@
-<div class="flex-column">
-    <ul class="schedule list">
-        <% thunderSchedule.forEach(game => { %>
-            <li>
-                <h2 class="<%= game.hasBeenPlayed ? 'past-game' : ''%> <%= game.isThunderHomeGame ? 'blue' : ''%>">
-                <%= game.gameNumber %> <!-- SPACE --> <span><%= game.date ? game.date : "" %></span> <!-- SPACE --> <%= game.home_team.name %> vs <%= game.visitor_team.name %> <!-- SPACE --> <%= game.isStarred ? '⭐ ' : '' %>
-                </h2>
-            </li>
-        <% }); %>
-    </ul>
-</div>
+<ul class="schedule-list">
+    <% thunderSchedule.forEach(game => { %>
+        <li 
+            class="schedule-item 
+                <%= game.hasBeenPlayed ? 'past-game' : '' %> 
+                <%= game.isThunderHomeGame ? 'home-game' : 'away-game' %>"
+            data-starred="<%= game.isStarred %>"
+        >
+            
+            <div class="game-number">
+                <%= game.gameNumber %>
+            </div>
+
+            <div class="game-info">
+                <div class="game-date">
+                    <%= game.longDate ? game.longDate : "" %>
+                </div>
+
+                <div class="matchup">
+                    <span><%= game.home_team.name %></span>
+                    <strong>vs</strong>
+                    <span><%= game.visitor_team.name %></span>
+                </div>
+            </div>
+
+            <% if (game.isStarred) { %>
+                <div class="star">⭐</div>
+            <% } %>
+
+        </li>
+    <% }); %>
+</ul>

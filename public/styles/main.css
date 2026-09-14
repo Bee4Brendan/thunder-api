@@ -16,6 +16,7 @@ html {
     --volt: #ceff00;
     --blue: rgb(44, 128, 255);
     --orange: rgb(255, 174, 0);
+    --dark-gray: rgb(30, 30, 30);
 }
 
 .blue {
@@ -37,6 +38,7 @@ html {
 .flex-column {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .sb {
@@ -115,6 +117,7 @@ body {
     align-items: center;
     padding: 2rem;
     max-width: 100vw;
+    max-height: 80vh;
 }
 
 .logo-wrapper {
@@ -217,6 +220,8 @@ body {
 .row-container {
     display: flex;
     flex-direction: row;
+    height: 100%;
+    max-height: 80vh;
 }
 
 .player-info {
@@ -236,14 +241,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.list {
-    max-height: 45vh;
-    overflow-y: auto;
-    scrollbar-width: none;
-    padding: 1rem;
-    margin-top: 1rem;
 }
 
 #player-number {
@@ -279,6 +276,8 @@ body {
 
 #game-legend {
     padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 100%;
 }
 
 .legend-square {
@@ -300,6 +299,129 @@ body {
 
 #game-legend-item > p {
     margin-left: 10px;
+}
+
+.schedule-filter {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+
+    background: white;
+    color: #374151;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: all 0.15s ease;
+}
+
+.filter-btn:hover {
+    background: #f3f4f6;
+}
+
+.filter-btn.active {
+    background: #007ac1;
+    border-color: #007ac1;
+    color: white;
+}
+
+.list {
+    max-height: 45vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.schedule-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.schedule-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+
+    background: var(--dark-gray);
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #d1d5db;
+    border-radius: 10px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.schedule-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Thunder home game */
+.schedule-item.home-game {
+    border-left-color: #007ac1;
+}
+
+/* Games that have already happened */
+.schedule-item.past-game {
+    opacity: 0.55;
+}
+
+.game-number {
+    min-width: 45px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #6b7280;
+}
+
+.game-info {
+    flex: 1;
+}
+
+.game-date {
+    margin-bottom: 0.25rem;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.matchup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.matchup strong {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.star {
+    font-size: 1.2rem;
 }
 
 h2 {
