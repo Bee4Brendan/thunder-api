@@ -541,6 +541,10 @@ ul {
 }
 
 @media (max-width: 700px) {
+    .nav-link {
+        padding: .75rem;
+    }
+    
     h1 {
         font-size: 2em;
     }
