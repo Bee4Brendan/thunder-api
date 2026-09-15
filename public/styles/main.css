@@ -102,17 +102,21 @@ body {
     background-color: black;
     color: white;
 
-    
-    min-height: 100vh;
+    height: calc(100vh - 3rem);
     width: 100vw;
+    margin-top: 3rem;
 
     display: flex;
     justify-content: center;
-    align-items: center;
 
     background: radial-gradient(circle at 20% 30%, rgba(0, 102, 255, 0.35), transparent 35%), radial-gradient(circle at 80% 70%, rgba(120, 40, 255, 0.3), transparent 35%), #000;
     background-size: 150% 150%;
     animation: backgroundMove 20s ease-in-out infinite alternate;
+}
+
+#players-body, #home-body {
+    align-items: center;
+    padding: 0;
 }
 
 .container {
@@ -327,8 +331,8 @@ body {
 }
 
 .filter-btn.active {
-    background: #007ac1;
-    border-color: #007ac1;
+    background: var(--blue);
+    border-color: var(--blue);
     color: white;
 }
 
@@ -373,7 +377,7 @@ body {
 
 /* Thunder home game */
 .schedule-item.home-game {
-    border-left-color: #007ac1;
+    border-left-color: var(--blue);
 }
 
 /* Games that have already happened */
@@ -534,6 +538,7 @@ ul {
     }
 
     #players-body {
+        padding: 0;
         width: 100%;
         max-height: 100vh;
         align-items: flex-start;
