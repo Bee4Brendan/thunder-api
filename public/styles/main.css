@@ -259,6 +259,7 @@ body {
 
 #player-list-title {
     padding: 1rem;
+    animation: title-enter 0.8s ease-out 0s forwards;
 }
 
 #player-position {
@@ -345,6 +346,12 @@ body {
     overflow-y: auto;
     scrollbar-width: none;
     padding: 1rem;
+
+    animation: title-enter 0.8s ease-out 0s forwards;
+}
+
+#schedule-title {
+    animation: title-enter 0.8s ease-out 0s forwards;
 }
 
 .schedule-list {
@@ -354,6 +361,8 @@ body {
     width: 100%;
     overflow-y: auto;
     scrollbar-width: none;
+
+    animation: title-enter 0.8s ease-out 0s forwards;
 }
 
 .schedule-item {
