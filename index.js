@@ -101,6 +101,7 @@ async function getThunderSchedule(req, res, next) {
             // the first game that's in the future is the next game
             if (!nextGame && game.date > todaysDate) {
                 nextGame = true;
+                game.isNextGame = true;
                 thunderSchedule.nextGame = game;
             }
 
@@ -209,4 +210,5 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+
 });
