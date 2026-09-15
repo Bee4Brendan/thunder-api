@@ -257,6 +257,10 @@ body {
     }
 }
 
+#player-list-title {
+    padding: 1rem;
+}
+
 #player-position {
     position: absolute;
     font-size: 65px;
@@ -337,11 +341,10 @@ body {
 }
 
 .list {
-    max-height: 45dvh;
+    max-height: 40dvh;
     overflow-y: auto;
     scrollbar-width: none;
     padding: 1rem;
-    margin-top: 1rem;
 }
 
 .schedule-list {
@@ -547,50 +550,29 @@ ul {
     .player-info {
         max-width: 363px;
         margin-right: 0;
-        padding-top: 2.5rem;
+        padding-top: 0;
         padding-right: 1rem;
         padding-bottom: 8rem;
         border-right: 0px;
-        min-height: 390px;
+        height: 40dvh;
 
         &.empty {
             padding-bottom: 2rem;
         }
     }
 
-    .carousel {
-        gap: 1rem;
-    }
-
     .game-card {
         flex: 0 0 80%;
     }
-
 
     .row-container {
         flex-direction: column;
     }
 }
 
-@media (max-width: 430px) {
-    .list {
-        max-height: 35dvh;
-    }
-}
-
-@media (max-width: 390px) {
-    .list {
-        max-height: 32dvh;
-    }
-}
-
 @media (max-width: 375px) {
     #home-title {
         font-size: 25px;
-    }
-
-    .list {
-        max-height: 20dvh;
     }
 }
 
