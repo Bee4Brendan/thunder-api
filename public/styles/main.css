@@ -659,7 +659,7 @@ full width for phones */
         padding-right: 1rem;
         padding-bottom: 8rem;
         border-right: 0px;
-        height: 40dvh;
+        height: 43dvh;
 
         &.empty {
             padding-bottom: 2rem;
