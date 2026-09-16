@@ -612,7 +612,7 @@ full width for phones */
     }
 
     #player-image {
-        transform: scale(.9) translate(90px, -140px);
+        transform: scale(.85) translate(90px, -140px);
     }
 
     .schedule .list h2 {
@@ -659,7 +659,7 @@ full width for phones */
         padding-right: 1rem;
         padding-bottom: 8rem;
         border-right: 0px;
-        height: 40dvh;
+        height: 42dvh;
 
         &.empty {
             padding-bottom: 2rem;
