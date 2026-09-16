@@ -31,6 +31,7 @@ const currentThunderPlayers = [
     "Jared McCain", // 1028027372
     "Otega Oweh", // 1091466034
     "Josh Dix", // 1091904395
+    "Cristoph Tilly",
     "Brooks Barnhizer", // 1057392335
 ];
 
