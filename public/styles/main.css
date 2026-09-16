@@ -591,7 +591,6 @@ ul {
     }
 }
 
-
 /*----------------- Responsiveness ---------------------
 --------------------------------------------------------
 ========================================================
@@ -609,14 +608,6 @@ full width for phones */
 
     h2 {
         font-size: 1.5em;
-    }
-
-    #player-image {
-        transform: scale(.80) translate(90px, -170px);
-
-        &:hover {
-        transform: translate(0, -170px);
-    }
     }
 
     .schedule .list h2 {
@@ -685,6 +676,116 @@ full width for phones */
     }
 }
 
+@media (max-height: 1024px) {
+    .list {
+        max-height: 50dvh;
+    }
+}
+
+@media (max-height: 984px) {
+    .list {
+        max-height: 49dvh;
+    }
+}
+
+@media (max-height: 956px) {
+    .list {
+        max-height: 48dvh;
+    }
+}
+
+@media (max-height: 925px) {
+    .list {
+        max-height: 45dvh;
+    }
+}
+
+@media (max-height: 872px) {
+    .list {
+        max-height: 43dvh;
+    }
+}
+
+@media (max-height: 840px) {
+    .list {
+        max-height: 42dvh;
+    }
+}
+
+@media (max-height: 811px) {
+    .list {
+        max-height: 41dvh;
+    }
+}
+
+@media (max-height: 781px) {
+    #player-image {
+        transform: scale(0.9) translate(90px, -140px);
+
+        &:hover {
+            transform: scale(0.9) translate(0, -140px);
+        }
+    }
+
+    #player-position {
+        transform: translate(30px, 10px);
+    }
+}
+
+@media (max-height: 755px) {
+    .list {
+        max-height: 40dvh;
+    }
+}
+
+@media (max-height: 742px) {
+    .player-info {
+        min-height: 43dvh;
+    }
+
+    .list {
+        max-height: 38dvh;
+    }
+}
+
+@media (max-height: 728px) {
+    .list {
+        max-height: 37.5dvh;
+    }
+}
+
+@media (max-height: 705px) {
+    #player-image {
+        transform: scale(0.8) translate(90px, -160px);
+
+        &:hover {
+            transform: scale(0.8) translate(0, -160px);
+        }
+    }
+
+    #player-position {
+        transform: translate(30px, 10px);
+    }
+
+    .list {
+        max-height: 37dvh;
+    }
+}
+
+@media (max-height: 666px) {
+    #player-image {
+        transform: scale(0.75) translate(90px, -180px);
+
+        &:hover {
+            transform: scale(0.75) translate(0, -180px);
+        }
+    }
+
+    #player-position {
+        transform: translate(30px, 0px);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     #big-logo,
     #home-title,
@@ -695,4 +796,3 @@ full width for phones */
         filter: none;
     }
 }
-
