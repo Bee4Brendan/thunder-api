@@ -498,18 +498,6 @@ body {
     font-weight: 500;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-
-    100% {
-        transform: scale(1.08);
-        opacity: 0;
-    }
-}
-
 h2 {
     transition: 0.35s ease;
     cursor: pointer;
@@ -580,6 +568,7 @@ ul {
     }
 }
 
+/* animations */
 @keyframes backgroundMove {
     0% {
         background-position: 0% 0%;
@@ -590,7 +579,23 @@ ul {
     }
 }
 
-@media (max-height: 956px) {
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1.08);
+        opacity: 0;
+    }
+}
+
+/*----------------- Responsiveness ---------------------
+--------------------------------------------------------
+========================================================
+full width for phones */
+@media (max-width: 470px) {
     .schedule.container {
         padding: 0.5rem;
         padding-top: 2rem;
@@ -614,7 +619,11 @@ ul {
     }
 }
 
-@media (max-height: 812px) {
+@media (max-width: 852px) {
+    .nav-link {
+        padding: 0.75rem;
+    }
+
     #home-title {
         font-size: 30px;
     }
@@ -622,19 +631,13 @@ ul {
     .thunder-info {
         font-size: 1em;
     }
-}
 
-@media (max-height: 700px) {
-    .nav-link {
-        padding: 0.75rem;
+    #big-logo {
+        width: 300px;
     }
 
     #small-logo {
         display: none;
-    }
-
-    #big-logo {
-        width: 300px;
     }
 
     #players-body {
@@ -683,3 +686,4 @@ ul {
         filter: none;
     }
 }
+
