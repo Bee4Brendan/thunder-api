@@ -127,6 +127,16 @@ body {
     animation: backgroundMove 20s ease-in-out infinite alternate;
 }
 
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
 #players-body,
 #home-body {
     align-items: center;
@@ -149,24 +159,6 @@ body {
     animation: float 4s ease-in-out infinite;
 }
 
-#big-logo {
-    width: 400px;
-    animation: coin-flip 8s linear infinite;
-    transform-style: preserve-3d;
-
-    &:hover {
-        transform: scale3d(1.2, 1.2, 1.2);
-    }
-}
-
-#small-logo {
-    width: 250px;
-    position: absolute;
-    transform: translate(130px, -60px);
-    opacity: 0.6;
-    z-index: -1;
-}
-
 @keyframes float {
     0%,
     100% {
@@ -178,6 +170,16 @@ body {
     }
 }
 
+#big-logo {
+    width: 400px;
+    animation: coin-flip 8s linear infinite;
+    transform-style: preserve-3d;
+
+    &:hover {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+}
+
 @keyframes coin-flip {
     from {
         transform: rotateY(0deg);
@@ -186,6 +188,14 @@ body {
     to {
         transform: rotateY(360deg);
     }
+}
+
+#small-logo {
+    width: 250px;
+    position: absolute;
+    transform: translate(130px, -60px);
+    opacity: 0.6;
+    z-index: -1;
 }
 
 #home-title {
@@ -217,14 +227,6 @@ body {
     animation: info-enter 0.6s ease-out forwards;
 }
 
-.thunder-info:nth-child(1) {
-    animation-delay: 0.8s;
-}
-
-.thunder-info:nth-child(2) {
-    animation-delay: 1s;
-}
-
 @keyframes info-enter {
     from {
         opacity: 0;
@@ -235,6 +237,14 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.thunder-info:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.thunder-info:nth-child(2) {
+    animation-delay: 1s;
 }
 
 .row-container {
@@ -368,6 +378,7 @@ body {
     overflow-y: auto;
     scrollbar-width: none;
     padding: 1rem;
+    margin-bottom: 1rem;
 
     animation: title-enter 0.8s ease-out 0s forwards;
 }
@@ -406,6 +417,18 @@ body {
     border-radius: inherit;
     z-index: -1;
     animation: pulse 1s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1.08);
+        opacity: 0;
+    }
 }
 
 .schedule-item {
@@ -568,28 +591,6 @@ ul {
     }
 }
 
-/* animations */
-@keyframes backgroundMove {
-    0% {
-        background-position: 0% 0%;
-    }
-
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-
-    100% {
-        transform: scale(1.08);
-        opacity: 0;
-    }
-}
 
 /*----------------- Responsiveness ---------------------
 --------------------------------------------------------
