@@ -31,7 +31,7 @@ const currentThunderPlayers = [
     "Jared McCain", // 1028027372
     "Otega Oweh", // 1091466034
     "Josh Dix", // 1091904395
-    "Cristoph Tilly",
+    "Cristoph Tilly", // 
     "Brooks Barnhizer", // 1057392335
 ];
 
@@ -84,7 +84,8 @@ async function getThunderSchedule(req, res, next) {
     try {
         // retrieve Thunder games after Opening Night
         const startDate = "2026-10-20";
-        const todaysDate = new Date().toISOString().split("T")[0]; // "e.g. 2026-09-02"
+        const todaysDate = new Date().toISOString(); // "e.g. 2026-09-02"
+        console.log("TODAYS DATE", todaysDate);
         const gamesResponse = await axios.get(API_URL + `/games?start_date=${startDate}&team_ids[]=${thunderID}&per_page=100`, config);
 
         // log games data
@@ -100,7 +101,7 @@ async function getThunderSchedule(req, res, next) {
         // mark games as hasBeenPlayed, isStarred, and isThunderHomeGame
         thunderSchedule.forEach((game, index) => {
             // the first game that's in the future is the next game
-            if (!nextGame && game.date > todaysDate) {
+            if (!nextGame && game.datetime > todaysDate) {
                 nextGame = true;
                 game.isNextGame = true;
                 thunderSchedule.nextGame = game;
@@ -109,7 +110,7 @@ async function getThunderSchedule(req, res, next) {
             // game 1, game 2, etc.
             game.gameNumber = index + 1;
             // if the game is in the future, it hasn't been played (games that have been played will get strikethrough)
-            game.date > todaysDate ? (game.hasBeenPlayed = false) : (game.hasBeenPlayed = true);
+            game.datetime > todaysDate ? (game.hasBeenPlayed = false) : (game.hasBeenPlayed = true);
             // if the teams that are starred are either home or away team, the game is starred (rivals or contenders)
             !game.hasBeenPlayed && (starredTeams.includes(game.home_team.name) || starredTeams.includes(game.visitor_team.name)) ? (game.isStarred = true) : (game.isStarred = false);
 
@@ -220,4 +221,5 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
 

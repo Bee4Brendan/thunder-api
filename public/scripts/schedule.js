@@ -1,6 +1,8 @@
 const filterButtons = document.querySelectorAll(".filter-btn");
 const games = document.querySelectorAll(".schedule-item");
 
+scrollToNextGame();
+
 filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
         // Update active button
@@ -22,5 +24,19 @@ filterButtons.forEach((button) => {
                 game.style.display = game.dataset.starred === "true" ? "" : "none";
             }
         });
+
+        scrollToNextGame();
     });
 });
+
+function scrollToNextGame() {
+    // Scroll to the next game
+    const nextGame = document.querySelector(".next-game");
+
+    if (nextGame) {
+        nextGame.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+    }
+}
