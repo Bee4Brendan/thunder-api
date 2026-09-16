@@ -10,13 +10,14 @@
             data-starred="<%= game.isStarred %>"
         >
             
-            <div class="game-number">
-                <%= game.gameNumber %>
-            </div>
+            <!-- <div class="game-number">
+                <%= game.time %>
+            </div> -->
 
             <div class="game-info">
                 <div class="game-date">
-                    <%= game.longDate ? game.longDate : "" %>
+                    <%= game.longDate ? game.longDate + " - " : "" %>
+                    <span><%= game.time ? game.time : "" %></span>
                 </div>
 
                 <div class="matchup">
@@ -25,10 +26,11 @@
                     <span><%= game.visitor_team.name %></span>
                 </div>
             </div>
+            <img id="opponent-image" src="/images/team-logos/<%= game.opponent %>.svg" />
 
-            <% if (game.isStarred) { %>
+            <!-- <% if (game.isStarred) { %>
                 <div class="star">⭐</div>
-            <% } %>
+            <% } %> -->
 
         </li>
     <% }); %>

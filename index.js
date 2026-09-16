@@ -111,14 +111,22 @@ async function getThunderSchedule(req, res, next) {
             game.date > todaysDate ? (game.hasBeenPlayed = false) : (game.hasBeenPlayed = true);
             // if the teams that are starred are either home or away team, the game is starred (rivals or contenders)
             !game.hasBeenPlayed && (starredTeams.includes(game.home_team.name) || starredTeams.includes(game.visitor_team.name)) ? (game.isStarred = true) : (game.isStarred = false);
+
             // if the home team is the Thunder, it's a Thunder Home Game (obviously) these will end up being blue in GUI
-            game.home_team.name === "Thunder" ? (game.isThunderHomeGame = true) : (game.isThunderHomeGame = false);
+            if (game.home_team.name === "Thunder") {
+                game.isThunderHomeGame = true;
+                game.opponent = game.visitor_team.name;
+            } else {
+                game.isThunderHomeGame = false;
+                game.opponent = game.home_team.name;
+            }
 
             // convert to pretty dates
             const [year, month, day] = game.date.split("-");
             const gameDate = new Date(year, month - 1, day);
             game.date = gameDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
             game.longDate = gameDate.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+            game.time = new Date(game.datetime).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit"});
 
             // if the game is starred, add it to starred games array so we can list them in Games GUI
             if (game.isStarred) {
@@ -210,5 +218,4 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-
 });

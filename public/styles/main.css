@@ -17,6 +17,7 @@ html {
     --blue: rgb(44, 128, 255);
     --orange: rgb(255, 174, 0);
     --dark-gray: rgb(30, 30, 30);
+    --light-gray: rgb(107, 106, 106);
 }
 
 .blue {
@@ -303,6 +304,7 @@ body {
 .legend-square {
     width: 10px;
     height: 10px;
+    border-radius: 2px;
 
     &.blue {
         background-color: var(--blue);
@@ -332,7 +334,7 @@ body {
     padding: 0.5rem 1rem;
 
     border: 1px solid #d1d5db;
-    border-radius: 6px;
+    border-radius: 1rem;
 
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(20px) saturate(140%);
@@ -344,11 +346,12 @@ body {
     font-weight: 600;
     cursor: pointer;
 
-    transition: all 0.15s ease;
+    transition: all 0.3s ease;
 }
 
 .filter-btn:hover {
-    background: #f3f4f6;
+    background: #f4f5f6;
+    mix-blend-mode: difference;
 }
 
 .filter-btn.active {
@@ -387,6 +390,7 @@ body {
     gap: 1.25rem;
 
     padding: 1rem 1.25rem;
+    margin: .5rem;
     margin-bottom: 0.75rem;
 
     background: var(--dark-gray);
@@ -395,12 +399,18 @@ body {
 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .schedule-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+    outline: 1px solid var(--light-gray);
+    transform: scale(1.02);
+    box-shadow: 0 5px 12px rgba(224, 223, 223, 0.08);
+
+    .game-date {
+        color: var(--blue);
+        font-weight: bold;
+    }
 }
 
 /* Thunder home game */
@@ -414,7 +424,7 @@ body {
 }
 
 .game-number {
-    min-width: 45px;
+    min-width: 20px;
 
     font-size: 0.9rem;
     font-weight: 700;
@@ -435,13 +445,23 @@ body {
     letter-spacing: 0.04em;
 }
 
+.game-date span {
+    color: rgb(190, 187, 187);
+}
+
 .matchup {
+    min-width: 209px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 
     font-size: 1.05rem;
     font-weight: 600;
+}
+
+#opponent-image {
+    width: 3rem;
+    height: 100%;
 }
 
 .matchup strong {
@@ -517,7 +537,11 @@ ul {
 }
 
 .past-game {
-    text-decoration: line-through;
+    color: var(--dark-gray);
+
+    .matchup {
+        text-decoration: line-through;
+    }
 }
 
 @keyframes backgroundMove {
