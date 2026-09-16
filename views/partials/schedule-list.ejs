@@ -4,6 +4,7 @@
             class="schedule-item liquid-glass
                 <%= game.hasBeenPlayed ? 'past-game' : '' %> 
                 <%= game.isThunderHomeGame ? 'home-game' : 'away-game' %>
+                <%= game.isNextGame ? 'next-game' : '' %>
                 <%= game.isStarred ? 'starred-game' : '' %> "
             data-home="<%= game.isThunderHomeGame %>"
             data-away="<%= !game.isThunderHomeGame %>"

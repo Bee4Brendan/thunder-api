@@ -64,8 +64,9 @@ header {
     z-index: 3;
 }
 
-#nav-logo img{
+#nav-logo img {
     padding-top: 0.25rem;
+    margin-right: 1rem;
     width: 2.5rem;
     height: 100%;
     transition: 0.3s ease;
@@ -101,7 +102,7 @@ nav {
     text-decoration: none;
     color: black;
     transition: 0.3s linear;
-    font-size: 1.5rem;
+    font-size: 1rem;
 
     &:hover {
         transform: translateY(-5px);
@@ -126,7 +127,8 @@ body {
     animation: backgroundMove 20s ease-in-out infinite alternate;
 }
 
-#players-body, #home-body {
+#players-body,
+#home-body {
     align-items: center;
     padding: 0;
 }
@@ -391,13 +393,28 @@ body {
     box-shadow: 0 0 12px rgba(255, 193, 7, 0.25);
 }
 
+.schedule-item.next-game {
+    position: relative;
+    z-index: 0;
+}
+
+.schedule-item.next-game::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid gold;
+    border-radius: inherit;
+    z-index: -1;
+    animation: pulse 1s ease-out infinite;
+}
+
 .schedule-item {
     display: flex;
     align-items: center;
     gap: 1.25rem;
 
     padding: 1rem 1.25rem;
-    margin: .5rem;
+    margin: 0.5rem;
     margin-bottom: 0.75rem;
 
     background: var(--dark-gray);
@@ -406,7 +423,9 @@ body {
 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .schedule-item:hover {
@@ -479,8 +498,16 @@ body {
     font-weight: 500;
 }
 
-.star {
-    font-size: 1.2rem;
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1.08);
+        opacity: 0;
+    }
 }
 
 h2 {
@@ -563,7 +590,31 @@ ul {
     }
 }
 
-@media (max-width: 812px) {
+@media (max-height: 956px) {
+    .schedule.container {
+        padding: 0.5rem;
+        padding-top: 2rem;
+        min-width: 100vw;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .schedule .list h2 {
+        font-size: 1em;
+    }
+
+    #schedule-title {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-height: 812px) {
     #home-title {
         font-size: 30px;
     }
@@ -573,25 +624,9 @@ ul {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-height: 700px) {
     .nav-link {
-        padding: .75rem;
-    }
-    
-    h1 {
-        font-size: 2em;
-    }
-
-    #schedule-title {
-        font-size: 1.5em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    .schedule .list h2 {
-        font-size: 1em;
+        padding: 0.75rem;
     }
 
     #small-logo {
