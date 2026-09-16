@@ -126,7 +126,7 @@ async function getThunderSchedule(req, res, next) {
             const gameDate = new Date(year, month - 1, day);
             game.date = gameDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
             game.longDate = gameDate.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
-            game.time = new Date(game.datetime).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit"});
+            game.time = new Date(game.datetime).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
 
             // if the game is starred, add it to starred games array so we can list them in Games GUI
             if (game.isStarred) {
@@ -219,3 +219,4 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
