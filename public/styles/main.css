@@ -611,6 +611,10 @@ full width for phones */
         font-size: 1.5em;
     }
 
+    #player-image {
+        transform: scale(.9) translate(90px, -120px);
+    }
+
     .schedule .list h2 {
         font-size: 1em;
     }
