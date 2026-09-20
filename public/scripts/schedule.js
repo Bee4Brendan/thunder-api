@@ -16,13 +16,15 @@ filterButtons.forEach((button) => {
                 game.style.display = "";
             } else if (filter === "home") {
                 game.style.display = game.dataset.home === "true" ? "" : "none";
-            } else if (filter === "away") {
+            } /**else if (filter === "away") {
                 game.style.display = game.dataset.away === "true" ? "" : "none";
-            } else if (filter === "next") {
+            }**/ else if (filter === "next") {
                 game.style.display = game.dataset.next === "true" ? "" : "none";
+            } else if (filter === "cup") {
+                game.style.display = game.dataset.cup === "true" ? "" : "none";
             } else if (filter === "starred") {
                 game.style.display = game.dataset.starred === "true" ? "" : "none";
-            }
+            } 
         });
 
         scrollToNextGame();

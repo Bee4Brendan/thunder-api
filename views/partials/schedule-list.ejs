@@ -9,6 +9,7 @@
             data-home="<%= game.isThunderHomeGame %>"
             data-away="<%= !game.isThunderHomeGame %>"
             data-next="<%= game.isNextGame %>"
+            data-cup="<%= game.isCupGame %>"
             data-starred="<%= game.isStarred %>"
         >
             
@@ -30,11 +31,9 @@
                 </div>
             </div>
             <img id="opponent-image" src="/images/team-logos/<%= game.opponent %>.svg" />
-
-            <!-- <% if (game.isStarred) { %>
-                <div class="star">⭐</div>
-            <% } %> -->
-
+            <% if (game.isCupGame) { %>
+                <img id="cup-trophy-image" src="/images/cup-trophy.png">
+            <% } %>
         </li>
     <% }); %>
 </ul>

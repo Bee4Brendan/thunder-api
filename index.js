@@ -37,6 +37,8 @@ const currentThunderPlayers = [
 
 const starredTeams = ["Spurs", "76ers", "Hawks", "Pistons"];
 
+const cupGames = [9, 13, 16, 19];
+
 app.use(express.static("public"));
 
 /**
@@ -113,6 +115,8 @@ async function getThunderSchedule(req, res, next) {
             game.datetime > todaysDate ? (game.hasBeenPlayed = false) : (game.hasBeenPlayed = true);
             // if the teams that are starred are either home or away team, the game is starred (rivals or contenders)
             !game.hasBeenPlayed && (starredTeams.includes(game.home_team.name) || starredTeams.includes(game.visitor_team.name)) ? (game.isStarred = true) : (game.isStarred = false);
+            // if the gameNumber is included in the cupGames array, mark it as a cup game
+            cupGames.includes(game.gameNumber) ? game.isCupGame = true : game.isCupGame = false;
 
             // if the home team is the Thunder, it's a Thunder Home Game (obviously) these will end up being blue in GUI
             if (game.home_team.name === "Thunder") {
@@ -129,14 +133,8 @@ async function getThunderSchedule(req, res, next) {
             game.date = gameDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
             game.longDate = gameDate.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
             game.time = new Date(game.datetime).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
-
-            // if the game is starred, add it to starred games array so we can list them in Games GUI
-            if (game.isStarred) {
-                starredGames.push(game);
-            }
         });
 
-        thunderSchedule.starredGames = starredGames;
         res.locals.thunderSchedule = thunderSchedule;
 
         next();
@@ -221,5 +219,6 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
 
 

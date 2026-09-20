@@ -364,7 +364,6 @@ body {
 
 .filter-btn:hover {
     background: #f4f5f6;
-    mix-blend-mode: difference;
 }
 
 .filter-btn.active {
@@ -437,6 +436,7 @@ body {
     gap: 1.25rem;
 
     padding: 1rem 1.25rem;
+    padding-right: 2rem;
     margin: 0.5rem;
     margin-bottom: 0.75rem;
 
@@ -513,6 +513,14 @@ body {
 #opponent-image {
     width: 100%;
     height: 3rem;
+}
+
+#cup-trophy-image {
+    width: 1.75rem;
+}
+
+.filter-btn #cup-trophy-image {
+    width: 1rem;
 }
 
 .matchup strong {
@@ -597,7 +605,7 @@ ul {
 full width for phones */
 @media (max-width: 470px) {
     .schedule.container {
-        padding: 0.5rem;
+        padding: 1rem;
         padding-top: 2rem;
         min-width: 100vw;
     }
