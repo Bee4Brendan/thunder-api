@@ -346,7 +346,7 @@ body {
     padding: 0.5rem 1rem;
 
     border: 1px solid #d1d5db;
-    border-radius: 1rem;
+    border-radius: 2rem;
 
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(20px) saturate(140%);
@@ -515,8 +515,11 @@ body {
     height: 3rem;
 }
 
-#cup-trophy-image {
-    width: 1.75rem;
+.schedule-item #cup-trophy-image {
+    position: absolute;
+    z-index: -1;
+    transform: translateX(205px);
+    width: 2rem;
 }
 
 .filter-btn #cup-trophy-image {
@@ -678,6 +681,12 @@ full width for phones */
     }
 }
 
+@media (max-width: 410px) {
+    #cup-trophy-image {
+        width: 1.25rem;
+    }
+}
+
 @media (max-width: 375px) {
     #home-title {
         font-size: 25px;
@@ -804,3 +813,4 @@ full width for phones */
         filter: none;
     }
 }
+
