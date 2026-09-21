@@ -18,7 +18,7 @@ html {
     --orange: rgb(255, 174, 0);
     --dark-gray: rgb(30, 30, 30);
     --light-gray: rgb(107, 106, 106);
-    --border-radius: 2rem;
+    --border-radius: 1rem;
 }
 
 .blue {
@@ -312,20 +312,6 @@ body {
 #game-legend {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-}
-
-#game-legend-item {
-    transition: all 1s ease;
-
-    &:hover {
-        .legend-square {
-            transform: scale(1.5);
-        }
-    }
 }
 
 .legend-square {
@@ -356,12 +342,12 @@ body {
 }
 
 #game-legend-item > p {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .schedule-filter {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
     margin-bottom: 1rem;
     justify-content: space-between;
 }
@@ -394,6 +380,10 @@ body {
     background: var(--blue);
     border-color: var(--blue);
     color: white;
+}
+
+.filter-btn #cup-trophy-image {
+    width: 0.75rem;
 }
 
 .list {
@@ -546,10 +536,6 @@ body {
     width: 2rem;
 }
 
-.filter-btn #cup-trophy-image {
-    width: 1rem;
-}
-
 .matchup strong {
     color: #9ca3af;
     font-size: 0.85rem;
@@ -697,9 +683,19 @@ full width for phones */
     }
 }
 
+@media (max-width: 390px) {
+    .schedule-filter {
+        gap: 0.5rem;
+    }
+}
+
 @media (max-width: 375px) {
     #home-title {
         font-size: 25px;
+    }
+
+    .schedule-filter {
+        gap: 0.4rem;
     }
 }
 
@@ -823,4 +819,3 @@ full width for phones */
         filter: none;
     }
 }
-
