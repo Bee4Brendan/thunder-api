@@ -317,7 +317,7 @@ body {
 .legend-square {
     width: 10px;
     height: 10px;
-    border-radius: 50%;
+    border-radius: 2px;
 
     &.blue {
         background-color: var(--blue);
