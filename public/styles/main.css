@@ -265,6 +265,7 @@ body {
     overflow: hidden;
 
     border-radius: var(--border-radius);
+    border-bottom-right-radius: 5rem;
 }
 
 .player-header {
@@ -392,6 +393,7 @@ body {
     scrollbar-width: none;
     padding: 1rem;
     margin-bottom: 1rem;
+    border-radius: 1.5rem;
 
     animation: title-enter 0.8s ease-out 0s forwards;
 }
@@ -408,6 +410,8 @@ body {
     width: 100%;
     overflow-y: auto;
     scrollbar-width: none;
+
+    border-radius: 1.5rem;
 
     animation: title-enter 0.8s ease-out 0s forwards;
 }
@@ -621,7 +625,7 @@ full width for phones */
         font-size: 1em;
     }
 
-    #schedule-title {
+    #schedule-title, #player-list-title {
         font-size: 1.5em;
     }
 }
