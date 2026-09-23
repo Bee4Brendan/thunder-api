@@ -39,6 +39,42 @@ const starredTeams = ["Spurs", "76ers", "Hawks", "Pistons"];
 
 const cupGames = [9, 13, 16, 19];
 
+const gameChannels = {
+    "2026-10-20": ["peacock", "nbc"],
+    "2026-10-22": ["espn"],
+    "2026-10-28": ["espn"],
+    "2026-10-31": ["nba-tv"],
+    "2026-11-02": ["peacock", "nbcsn"],
+    "2026-11-10": ["peacock", "nbc"],
+    "2026-11-25": ["espn"],
+    "2026-12-22": ["peacock", "nbc"],
+    "2026-12-25": ["abc", "espn"],
+    "2027-01-06": ["espn"],
+    "2027-01-13": ["espn"],
+    "2027-01-15": ["nba-tv"],
+    "2027-01-24": ["peacock", "nbc"],
+    "2027-01-26": ["peacock", "nbc"],
+    "2027-01-30": ["abc"],
+    "2027-02-05": ["prime-video"],
+    "2027-02-07": ["peacock", "nbc"],
+    "2027-02-11": ["prime-video"],
+    "2027-02-13": ["prime-video"],
+    "2027-02-17": ["espn"],
+    "2027-02-25": ["prime-video"],
+    "2027-02-27": ["prime-video"],
+    "2027-03-02": ["peacock", "nbc"],
+    "2027-03-06": ["abc"],
+    "2027-03-08": ["peacock", "nbcsn"],
+    "2027-03-12": ["prime-video"],
+    "2027-03-14": ["abc"],
+    "2027-03-17": ["espn"],
+    "2027-03-20": ["nba-tv"],
+    "2027-03-23": ["peacock", "nbc"],
+    "2027-03-28": ["peacock", "nbc"],
+    "2027-04-01": ["prime-video"],
+    "2027-04-08": ["prime-video"],
+};
+
 app.use(express.static("public"));
 
 /**
@@ -92,8 +128,8 @@ async function getThunderSchedule(req, res, next) {
         const gamesResponse = await axios.get(API_URL + `/games?start_date=${startDate}&team_ids[]=${thunderID}&per_page=100`, config);
 
         // log games data
-        console.log(gamesResponse.data.data);
-        console.log(gamesResponse.data.data.length);
+        // console.log(gamesResponse.data.data);
+        // console.log(gamesResponse.data.data.length);
 
         // set thunderSchedule variable to all games
         const thunderSchedule = gamesResponse.data.data;
@@ -113,6 +149,7 @@ async function getThunderSchedule(req, res, next) {
             game.gameNumber = index + 1;
 
             // if the game is in the future, it hasn't been played (games that have been played will get strikethrough)
+            console.log("GAME.DATETIME", game.datetime);
             game.datetime > todaysDate ? (game.hasBeenPlayed = false) : (game.hasBeenPlayed = true);
 
             // if the teams that are starred are either home or away team, the game is starred (rivals or contenders)
@@ -134,8 +171,17 @@ async function getThunderSchedule(req, res, next) {
             const [year, month, day] = game.date.split("-");
             const gameDate = new Date(year, month - 1, day);
             game.date = gameDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
-            game.longDate = gameDate.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+            game.prettyDate = gameDate.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
             game.time = new Date(game.datetime).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
+
+            // get tv channels / streaming apps
+            game.shortDate = gameDate
+                .toLocaleDateString("en-CA", {
+                    timeZone: "America/Chicago",
+                })
+                .slice(0, 10);
+            console.log("SHORTDATE", game.shortDate);
+            game.channels = gameChannels[game.shortDate] || ["league-pass"];
         });
 
         res.locals.thunderSchedule = thunderSchedule;
@@ -222,3 +268,4 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+

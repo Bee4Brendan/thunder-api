@@ -48,6 +48,10 @@ html {
     width: 100%;
 }
 
+.full-width {
+    width: 100%;
+}
+
 .mb {
     margin-bottom: 1rem;
 }
@@ -416,47 +420,15 @@ body {
     animation: title-enter 0.8s ease-out 0s forwards;
 }
 
-.schedule-item.starred-game {
-    border-color: #ffc107;
-    box-shadow: 0 0 12px rgba(255, 193, 7, 0.25);
-}
-
-.schedule-item.next-game {
-    position: relative;
-    z-index: 0;
-}
-
-.schedule-item.next-game::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 2px solid gold;
-    border-radius: inherit;
-    z-index: -1;
-    animation: pulse 1s ease-out infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-
-    100% {
-        transform: scale(1.08);
-        opacity: 0;
-    }
-}
-
 .schedule-item {
     display: flex;
     align-items: center;
     gap: 1.25rem;
 
-    padding: 1rem 1.25rem;
-    padding-right: 2rem;
+    padding: 0;
     margin: 0.5rem;
     margin-bottom: 0.75rem;
+    overflow: hidden;
 
     background: var(--dark-gray);
     border: 1px solid #e5e7eb;
@@ -467,9 +439,19 @@ body {
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
+
+    &.upper-section {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+        padding: 1rem;
+        margin: 0;
+        background-color: transparent;
+    }
 }
 
-.schedule-item:hover {
+li.schedule-item:hover {
     outline: 1px solid var(--light-gray);
     transform: scale(1.02);
     box-shadow: 0 5px 12px rgba(224, 223, 223, 0.08);
@@ -488,6 +470,38 @@ body {
 /* Games that have already happened */
 .schedule-item.past-game {
     opacity: 0.55;
+}
+
+li.schedule-item.starred-game {
+    border-color: #ffc107;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.25);
+}
+
+li.schedule-item.next-game {
+    position: relative;
+    z-index: 0;
+}
+
+li.schedule-item.next-game::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--blue);
+    border-radius: inherit;
+    z-index: -1;
+    animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(.95);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
 }
 
 .game-number {
@@ -511,6 +525,8 @@ body {
     color: #6b7280;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+
+    text-wrap: nowrap;
 }
 
 .game-date span {
@@ -536,7 +552,7 @@ body {
 .schedule-item #cup-trophy-image {
     position: absolute;
     z-index: -1;
-    transform: translateX(205px);
+    transform: translateX(220px);
     width: 2rem;
 }
 
@@ -544,6 +560,20 @@ body {
     color: #9ca3af;
     font-size: 0.85rem;
     font-weight: 500;
+}
+
+.bottom-section {
+    border-bottom: 1px solid black;
+    height: 25px;
+    width: 100%;
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+}
+
+.tv-logo {
+    width: 50px;
+    height: 100%;
 }
 
 h2 {
@@ -625,7 +655,8 @@ full width for phones */
         font-size: 1em;
     }
 
-    #schedule-title, #player-list-title {
+    #schedule-title,
+    #player-list-title {
         font-size: 1.5em;
     }
 }
@@ -681,15 +712,29 @@ full width for phones */
     }
 }
 
-@media (max-width: 410px) {
+@media (max-width: 440px) {
+    .schedule-item #cup-trophy-image {
+        transform: translateX(245px);
+    }
+}
+
+@media (max-width: 412px) {
     #cup-trophy-image {
         width: 1.25rem;
+    }
+
+    .schedule-item #cup-trophy-image {
+        transform: translateX(240px);
     }
 }
 
 @media (max-width: 390px) {
     .schedule-filter {
         gap: 0.5rem;
+    }
+
+    .schedule-item #cup-trophy-image {
+        transform: translateX(225px);
     }
 }
 
@@ -700,6 +745,10 @@ full width for phones */
 
     .schedule-filter {
         gap: 0.4rem;
+    }
+
+    .schedule-item #cup-trophy-image {
+        transform: translateX(215px);
     }
 }
 

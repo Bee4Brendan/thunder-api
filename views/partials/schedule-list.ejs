@@ -12,28 +12,34 @@
             data-cup="<%= game.isCupGame %>"
             data-starred="<%= game.isStarred %>"
         >
-            
-            <div class="game-number">
-                <%= game.gameNumber %>
-            </div>
+            <div class="flex-column full-width">
+                <div class="schedule-item upper-section">
+                    <div class="game-number">
+                        <%= game.gameNumber %>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-date">
+                            <%= game.prettyDate ? game.prettyDate + " - " : "" %>
+                            <span><%= game.time ? game.time + " CT" : "" %></span>
+                        </div>
+                        <div class="matchup">
+                            <span><%= game.isThunderHomeGame ? "vs " + game.opponent : "at " + game.opponent %></span>
+                        </div>
+                     </div>
 
-            <div class="game-info">
-                <div class="game-date">
-                    <%= game.longDate ? game.longDate + " - " : "" %>
-                    <span><%= game.time ? game.time : "" %></span>
+                    <img id="opponent-image" src="/images/team-logos/<%= game.opponent %>.svg" />
+                    <% if (game.isCupGame) { %>
+                        <img id="cup-trophy-image" src="/images/cup-trophy.png">
+                    <% } %>
                 </div>
-
-                <div class="matchup">
-                    <span><%= game.isThunderHomeGame ? "vs " + game.opponent : "at " + game.opponent %></span>
-                    <!-- <span><%= game.home_team.name %></span>
-                    <strong>vs</strong>
-                    <span><%= game.visitor_team.name %></span> -->
-                </div>
+                <div class="lower">
+                    <div class="bottom-section">
+                    <% game.channels.forEach(channel => { %>
+                        <img class="tv-logo" src="/images/tv-logos/<%= channel %>.svg" alt="<%= channel %>">
+                    <% }) %>
+                    </div>
+                </div>  
             </div>
-            <img id="opponent-image" src="/images/team-logos/<%= game.opponent %>.svg" />
-            <% if (game.isCupGame) { %>
-                <img id="cup-trophy-image" src="/images/cup-trophy.png">
-            <% } %>
         </li>
     <% }); %>
 </ul>

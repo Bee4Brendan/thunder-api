@@ -1,5 +1,5 @@
 const filterButtons = document.querySelectorAll(".filter-btn");
-const games = document.querySelectorAll(".schedule-item");
+const games = document.querySelectorAll("li.schedule-item");
 
 scrollToNextGame();
 
