@@ -19,7 +19,7 @@
                     </div>
                     <div class="game-info">
                         <div class="game-date">
-                            <%= game.prettyDate ? game.prettyDate + " - " : "" %>
+                            <p><%= game.prettyDate ? game.prettyDate : "" %></p>
                             <span><%= game.time ? game.time + " CT" : "" %></span>
                         </div>
                         <div class="matchup">

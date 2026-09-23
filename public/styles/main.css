@@ -517,7 +517,6 @@ li.schedule-item.next-game::before {
 }
 
 .game-date {
-    margin-bottom: 0.25rem;
     min-width: 157px;
 
     font-size: 0.8rem;
@@ -526,11 +525,13 @@ li.schedule-item.next-game::before {
     text-transform: uppercase;
     letter-spacing: 0.04em;
 
+    display: flex;
     text-wrap: nowrap;
 }
 
 .game-date span {
     color: rgb(190, 187, 187);
+    margin-left: 10px;
 }
 
 .matchup {
@@ -590,7 +591,8 @@ h3 {
     color: rgb(133, 132, 132);
 }
 
-p {
+p, span {
+    font-family: "Kanit", sans-serif;
     color: rgb(99, 99, 99);
 }
 
