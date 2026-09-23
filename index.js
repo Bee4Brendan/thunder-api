@@ -170,18 +170,13 @@ async function getThunderSchedule(req, res, next) {
             // convert to pretty dates
             const [year, month, day] = game.date.split("-");
             const gameDate = new Date(year, month - 1, day);
-            game.date = gameDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+            console.log("GAMEDATE", gameDate);
             game.prettyDate = gameDate.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
             game.time = new Date(game.datetime).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
 
             // get tv channels / streaming apps
-            game.shortDate = gameDate
-                .toLocaleDateString("en-CA", {
-                    timeZone: "America/Chicago",
-                })
-                .slice(0, 10);
-            console.log("SHORTDATE", game.shortDate);
-            game.channels = gameChannels[game.shortDate] || ["league-pass"];
+            game.channels = gameChannels[game.date] || ["league-pass"];
+            console.log("CHANNELS: ", game.channels);
         });
 
         res.locals.thunderSchedule = thunderSchedule;
@@ -268,4 +263,6 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
 
