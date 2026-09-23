@@ -344,6 +344,7 @@ body {
 
 #game-legend-item {
     align-items: center;
+    height: 18px;
 }
 
 #game-legend-item > p {
@@ -462,11 +463,6 @@ li.schedule-item:hover {
     }
 }
 
-/* Thunder home game */
-.schedule-item.home-game {
-    border-left-color: var(--blue);
-}
-
 /* Games that have already happened */
 .schedule-item.past-game {
     opacity: 0.55;
@@ -475,6 +471,16 @@ li.schedule-item:hover {
 li.schedule-item.starred-game {
     border-color: #ffc107;
     box-shadow: 0 0 12px rgba(255, 193, 7, 0.25);
+}
+
+/* Thunder home game */
+li.schedule-item.home-game {
+    border-left-color: var(--blue);
+}
+
+/* Thunder away game */
+li.schedule-item.away-game {
+    border-left-color: white;
 }
 
 li.schedule-item.next-game {
@@ -519,7 +525,7 @@ li.schedule-item.next-game::before {
 .game-date {
     min-width: 157px;
 
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #6b7280;
     text-transform: uppercase;
@@ -546,7 +552,6 @@ li.schedule-item.next-game::before {
 }
 
 #opponent-image {
-    width: 100%;
     height: 3rem;
 }
 
@@ -570,12 +575,11 @@ li.schedule-item.next-game::before {
     padding: 0.25rem;
     display: flex;
     justify-content: center;
-}
+
 
 .tv-logo {
-    width: 50px;
-    height: 100%;
-}
+    margin: 0 1rem;
+}}
 
 h2 {
     transition: 0.35s ease;

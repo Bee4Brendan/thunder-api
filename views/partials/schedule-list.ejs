@@ -14,7 +14,7 @@
         >
             <div class="flex-column full-width">
                 <div class="schedule-item upper-section">
-                    <div class="game-number">
+                    <div class="game-number ubuntu-font">
                         <%= game.gameNumber %>
                     </div>
                     <div class="game-info">
@@ -35,7 +35,7 @@
                 <div class="lower">
                     <div class="bottom-section">
                     <% game.channels.forEach(channel => { %>
-                        <img class="tv-logo" src="/images/tv-logos/<%= channel %>.svg" alt="<%= channel %>">
+                        <img class="tv-logo <%= channel %>" src="/images/tv-logos/<%= channel %>.svg" alt="<%= channel %>">
                     <% }) %>
                     </div>
                 </div>  
