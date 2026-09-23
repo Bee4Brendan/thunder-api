@@ -314,7 +314,7 @@ body {
 }
 
 #game-legend {
-    padding-top: 1rem;
+    padding-top: .5rem;
     padding-bottom: 1rem;
 }
 
@@ -334,6 +334,7 @@ body {
 
 #game-legend-item {
     align-items: center;
+    padding: 0 1rem;
     height: 18px;
 }
 
@@ -568,7 +569,7 @@ li.schedule-item.next-game::before {
 
 
 .tv-logo {
-    margin: 0 .5rem;
+    margin: 0 8px;
 }}
 
 h2 {
