@@ -405,7 +405,7 @@ body {
     margin: 0;
     width: 100%;
     overflow-y: auto;
-    scrollbar-width: none;
+    scrollbar-width: thin;
 
     border-radius: 1.5rem;
 
@@ -437,7 +437,7 @@ body {
         border-radius: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 
-        padding: 1rem;
+        padding: .75rem 1rem;
         margin: 0;
         background-color: transparent;
     }
