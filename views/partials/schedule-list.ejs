@@ -14,7 +14,7 @@
         >
             <div class="flex-column full-width">
                 <div class="schedule-item upper-section">
-                    <div class="game-number ubuntu-font">
+                    <div class="game-number kanit-font">
                         <%= game.gameNumber %>
                     </div>
                     <div class="game-info">
@@ -23,7 +23,7 @@
                             <span><%= game.time ? game.time + " CT" : "" %></span>
                         </div>
                         <div class="matchup">
-                            <span><%= game.isThunderHomeGame ? "vs " + game.opponent : "at " + game.opponent %></span>
+                            <span class="ubuntu-font"><%= game.isThunderHomeGame ? "vs " + game.opponent : "at " + game.opponent %></span>
                         </div>
                      </div>
 
