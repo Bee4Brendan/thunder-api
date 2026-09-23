@@ -331,15 +331,6 @@ body {
     &.white {
         background-color: white;
     }
-
-    &.gold {
-        border: 1px solid gold;
-        animation: pulse 1s ease-out infinite;
-    }
-
-    &.cup {
-        height: 100%;
-    }
 }
 
 #game-legend-item {
@@ -556,9 +547,9 @@ li.schedule-item.next-game::before {
 }
 
 .schedule-item #cup-trophy-image {
-    position: absolute;
+    position: fixed;
     z-index: -1;
-    transform: translateX(220px);
+    transform: translateX(270px);
     width: 2rem;
 }
 
@@ -718,12 +709,6 @@ full width for phones */
     }
 }
 
-@media (max-width: 440px) {
-    .schedule-item #cup-trophy-image {
-        transform: translateX(245px);
-    }
-}
-
 @media (max-width: 412px) {
     #cup-trophy-image {
         width: 1.25rem;
@@ -740,7 +725,7 @@ full width for phones */
     }
 
     .schedule-item #cup-trophy-image {
-        transform: translateX(225px);
+        transform: translateX(235px);
     }
 }
 
@@ -751,10 +736,6 @@ full width for phones */
 
     .schedule-filter {
         gap: 0.4rem;
-    }
-
-    .schedule-item #cup-trophy-image {
-        transform: translateX(215px);
     }
 }
 
