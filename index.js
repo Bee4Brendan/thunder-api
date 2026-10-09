@@ -31,8 +31,11 @@ const currentThunderPlayers = [
     "Jared McCain", // 1028027372
     "Otega Oweh", // 1091466034
     "Josh Dix", // 1091904395
-    "Cristoph Tilly", //
+    "Cristoph Tilly", // 1097033907
     "Brooks Barnhizer", // 1057392335
+    "Zhaire Smith", // 425
+    "Andrew Holifield", // 1098474559
+    "Anthony Pritchard", // 1099946149
 ];
 
 const starredTeams = ["Spurs", "76ers", "Hawks", "Pistons"];
@@ -263,6 +266,10 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+
 
 
 

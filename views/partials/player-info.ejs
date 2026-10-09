@@ -14,7 +14,7 @@
         src="/images/players/<%= selectedPlayer.id %>.webp"
         onerror="
             this.onerror = null;
-            this.src = '/images/players/null.avif';
+            this.src = '/images/players/null.webp';
         " />
     <img id="small-logo" src="/images/logo.svg" />
     <p id="player-college" class="kanit-font"><%= selectedPlayer.college ? "College: " + selectedPlayer.college : " "%></p>
