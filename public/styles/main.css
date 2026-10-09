@@ -284,6 +284,7 @@ body {
     font-size: 65px;
     transform: translate(30px, 40px);
     z-index: 1;
+    mix-blend-mode:difference;
 }
 
 #player-image {

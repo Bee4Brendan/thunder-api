@@ -178,7 +178,7 @@ async function getThunderSchedule(req, res, next) {
             game.time = new Date(game.datetime).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
 
             // get tv channels / streaming apps
-            game.channels = gameChannels[game.date] || ["league-pass"];
+            game.channels = gameChannels[game.date] || ["thunder+"];
             console.log("CHANNELS: ", game.channels);
         });
 
