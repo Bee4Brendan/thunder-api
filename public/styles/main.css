@@ -258,6 +258,14 @@ body {
     border-bottom-right-radius: 5rem;
 }
 
+.player.active {
+    background-color: #333;
+    color: white;
+    border-left: 4px solid #007bff;
+    padding-left: 8px;
+    border-radius: 4px;
+}
+
 .player-header {
     display: flex;
     justify-content: space-between;
