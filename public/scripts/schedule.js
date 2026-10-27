@@ -1,5 +1,32 @@
 const filterButtons = document.querySelectorAll(".filter-btn");
 const games = document.querySelectorAll("li.schedule-item");
+const searchContainer = document.querySelector(".search-container");
+const searchToggle = document.querySelector("#search-toggle");
+const searchInput = document.querySelector("#search-input");
+
+searchToggle.addEventListener("click", () => {
+    searchContainer.classList.toggle("active");
+
+    if (searchContainer.classList.contains("active")) {
+        searchInput.focus();
+    } else {
+        searchInput.value = "";
+    }
+});
+
+searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase().trim();
+
+    games.forEach((game) => {
+        const homeTeam = game.dataset.homeTeam.toLowerCase();
+        const visitorTeam = game.dataset.visitorTeam.toLowerCase();
+        const date = game.dataset.date.toLowerCase();
+
+        const matches = homeTeam.includes(query) || visitorTeam.includes(query) || date.includes(query);
+
+        game.style.display = matches ? "" : "none";
+    });
+});
 
 scrollToNextGame();
 
@@ -24,7 +51,7 @@ filterButtons.forEach((button) => {
                 game.style.display = game.dataset.cup === "true" ? "" : "none";
             } else if (filter === "starred") {
                 game.style.display = game.dataset.starred === "true" ? "" : "none";
-            } 
+            }
         });
 
         scrollToNextGame();

@@ -13,6 +13,9 @@
             data-cup="<%= game.isCupGame %>"
             data-starred="<%= game.isStarred %>"
             data-win="<%= game.result === "W"%>"
+            data-home-team="<%= game.home_team.name %>"
+            data-visitor-team="<%= game.visitor_team.name %>"
+            data-date="<%= game.prettyDate %>"
         >
             <div class="flex-column full-width">
 
@@ -21,9 +24,6 @@
                         <p><%= game.prettyDate ? game.prettyDate : "" %></p>
                         <span><%= game.time ? game.time + " CT" : "" %></span>
                     </div>
-                    <!-- <div class="matchup">
-                        <span class="ubuntu-font"><%= game.isThunderHomeGame ? "vs " + game.opponent : "at " + game.opponent %></span>
-                    </div> -->
                 </div>
 
                 <div class="schedule-item upper-section">

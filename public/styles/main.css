@@ -338,6 +338,44 @@ body {
     margin-left: 10px;
 }
 
+.fa-magnifying-glass{
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#search-input {
+    display: none;
+    width: 0;
+    padding: 0;
+    opacity: 0;
+    border: none;
+    border-radius: var(--border-radius);
+    color: white;
+    background: black;
+    transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.search-container.active #search-input {
+    display: block;
+    width: 200px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    opacity: 1;
+    border: 1px solid #ccc;
+}
+
+#search-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+}
+
 .schedule-filter {
     display: flex;
     gap: 0.75rem;
@@ -376,10 +414,6 @@ body {
     background: var(--blue);
     border-color: var(--blue);
     color: white;
-}
-
-.filter-btn #cup-trophy-image {
-    width: 0.75rem;
 }
 
 .list {
@@ -615,6 +649,7 @@ li.schedule-item.next-game::before {
     position: absolute;
     z-index: -1;
     justify-self: center;
+    transform: translateY(-14px);
     width: 2rem;
 }
 
@@ -781,9 +816,9 @@ full width for phones */
         width: 1.25rem;
     }
 
-    .schedule-item #cup-trophy-image {
+    /* .schedule-item #cup-trophy-image {
         transform: translateY(-14px);
-    }
+    } */
 }
 
 @media (max-width: 390px) {
@@ -791,9 +826,9 @@ full width for phones */
         gap: 0.5rem;
     }
 
-    .schedule-item #cup-trophy-image {
+    /* .schedule-item #cup-trophy-image {
         transform: translateY(-14px);
-    }
+    } */
 }
 
 @media (max-width: 375px) {
