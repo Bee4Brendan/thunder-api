@@ -4,6 +4,8 @@ import axios from "axios";
 
 // Thunder variables
 let thunderRoster = [];
+let wins = 0,
+    losses = 0;
 const thunderID = 21;
 
 // Express Setup
@@ -138,6 +140,7 @@ async function getThunderSchedule(req, res, next) {
         const thunderSchedule = gamesResponse.data.data;
 
         let nextGame = false;
+        wins = losses = 0;
 
         // mark games as hasBeenPlayed, isStarred, and isThunderHomeGame
         thunderSchedule.forEach((game, index) => {
@@ -151,9 +154,9 @@ async function getThunderSchedule(req, res, next) {
             // game 1, game 2, etc.
             game.gameNumber = index + 1;
 
-            // if the game is in the future, it hasn't been played (games that have been played will get strikethrough)
+            // if the game has Final status, it's over (games that have been played will get strikethrough)
             console.log("GAME.DATETIME", game.datetime);
-            game.datetime > todaysDate ? (game.hasBeenPlayed = false) : (game.hasBeenPlayed = true);
+            game.status === "Final" ? (game.hasBeenPlayed = true) : (game.hasBeenPlayed = false);
 
             // if the teams that are starred are either home or away team, the game is starred (rivals or contenders)
             !game.hasBeenPlayed && (starredTeams.includes(game.home_team.name) || starredTeams.includes(game.visitor_team.name)) ? (game.isStarred = true) : (game.isStarred = false);
@@ -168,12 +171,39 @@ async function getThunderSchedule(req, res, next) {
             } else {
                 game.isThunderHomeGame = false;
                 game.opponent = game.home_team.name;
+                game.isThunderWin = game.hasBeenPlayed && game.visitor_team_score > game.home_team_score;
             }
+
+            if (game.hasBeenPlayed) {
+                if (game.isThunderHomeGame){
+                    if (game.home_team_score > game.visitor_team_score) {
+                        game.result = "W";
+                        wins++;
+                    } else {
+                        game.result = "L";
+                        losses++;
+                    }
+                } else {
+                    if (game.visitor_team_score > game.home_team_score) {
+                        game.result = "W";
+                        wins++;
+                    } else {
+                        game.result = "L";
+                        losses++;
+                    }
+                }
+            } else {
+                game.result = " "
+            }
+
+            game.wins = wins;
+            game.losses = losses;
 
             // convert to pretty dates
             const [year, month, day] = game.date.split("-");
             const gameDate = new Date(year, month - 1, day);
             console.log("GAMEDATE", gameDate);
+            console.log(`\n${game.status} ${game.home_team.name} ${game.home_team_score} - ${game.visitor_team.name} ${game.visitor_team_score} ${game.result}`);
             game.prettyDate = gameDate.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
             game.time = new Date(game.datetime).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
 
@@ -257,6 +287,7 @@ app.get("/players/:id", getThunderRoster, async (req, res) => {
 app.get("/games", getThunderSchedule, async (req, res) => {
     try {
         console.log("NEXT GAME:", res.locals.thunderSchedule.nextGame);
+        console.log("RECORD:", ` ${wins} - ${losses}`)
         res.render("schedule.ejs");
     } catch (error) {
         console.error(error);
@@ -266,6 +297,10 @@ app.get("/games", getThunderSchedule, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+
 
 
 

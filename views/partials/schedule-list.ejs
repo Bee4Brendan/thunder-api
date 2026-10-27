@@ -5,32 +5,46 @@
                 <%= game.hasBeenPlayed ? 'past-game' : '' %> 
                 <%= game.isThunderHomeGame ? 'home-game' : 'away-game' %>
                 <%= game.isNextGame ? 'next-game' : '' %>
-                <%= game.isStarred ? 'starred-game' : '' %> "
+                <%= game.isStarred ? 'starred-game' : '' %> 
+                <%= game.result === "W" ? 'win' : 'loss'%>"
             data-home="<%= game.isThunderHomeGame %>"
             data-away="<%= !game.isThunderHomeGame %>"
             data-next="<%= game.isNextGame %>"
             data-cup="<%= game.isCupGame %>"
             data-starred="<%= game.isStarred %>"
+            data-win="<%= game.result === "W"%>"
         >
             <div class="flex-column full-width">
-                <div class="schedule-item upper-section">
-                    <div class="game-number kanit-font">
-                        <%= game.gameNumber %>
-                    </div>
-                    <div class="game-info">
-                        <div class="game-date">
-                            <p><%= game.prettyDate ? game.prettyDate : "" %></p>
-                            <span><%= game.time ? game.time + " CT" : "" %></span>
-                        </div>
-                        <div class="matchup">
-                            <span class="ubuntu-font"><%= game.isThunderHomeGame ? "vs " + game.opponent : "at " + game.opponent %></span>
-                        </div>
-                     </div>
 
-                    <img id="opponent-image" src="/images/team-logos/<%= game.opponent %>.svg" />
+                <div class="game-info">
+                    <div class="game-date">
+                        <p><%= game.prettyDate ? game.prettyDate : "" %></p>
+                        <span><%= game.time ? game.time + " CT" : "" %></span>
+                    </div>
+                    <!-- <div class="matchup">
+                        <span class="ubuntu-font"><%= game.isThunderHomeGame ? "vs " + game.opponent : "at " + game.opponent %></span>
+                    </div> -->
+                </div>
+
+                <div class="schedule-item upper-section">
+                    <!-- <div class="game-number kanit-font">
+                        <%= game.gameNumber %>
+                        
+                    </div> -->
+
+
+                    <img id="home-team-logo" src="/images/team-logos/<%= game.home_team.name %>.svg" />
+                    <p id="home-team-score" class="score"><%= game.home_team_score %></p>
+                    <p id="visitor-team-score" class="score"><%= game.visitor_team_score %></p>
+                    <img id="visitor-team-logo" src="/images/team-logos/<%= game.visitor_team.name %>.svg" />
+                    
+                    <p id="home-team-name"><%= game.home_team.name %></p>
+                    <p id="visitor-team-name"><%= game.visitor_team.name %></p>
+                    <p id="status"><%= game.status && !game.status.endsWith('Z') ? game.status + " • " : '' %> <%= game.wins %> - <%= game.losses %></p>
                     <% if (game.isCupGame) { %>
                         <img id="cup-trophy-image" src="/images/cup-trophy.png">
                     <% } %>
+                    <p id="result"><%= game.result %></p>
                 </div>
                 <div class="lower">
                     <div class="bottom-section">
