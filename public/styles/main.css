@@ -338,7 +338,7 @@ body {
     margin-left: 10px;
 }
 
-.fa-magnifying-glass{
+.fa-magnifying-glass {
     color: white;
 }
 
@@ -350,6 +350,7 @@ body {
 
 #search-input {
     display: none;
+    font-size: 16px;
     width: 0;
     padding: 0;
     opacity: 0;
@@ -357,7 +358,9 @@ body {
     border-radius: var(--border-radius);
     color: white;
     background: black;
-    transition: width 0.3s ease, opacity 0.3s ease;
+    transition:
+        width 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .search-container.active #search-input {
@@ -492,12 +495,16 @@ li.schedule-item:hover {
 
 /* Games that have already happened */
 .schedule-item.past-game {
-    opacity: 0.70;
+    opacity: 0.7;
 }
 
 .score {
     color: white;
     font-size: 25px;
+    font-weight: 200;
+}
+
+.bold {
     font-weight: 600;
 }
 
@@ -507,6 +514,10 @@ li.schedule-item:hover {
     font-weight: 600;
     position: absolute;
     transform: translateY(-40px);
+}
+
+#result.loss {
+    color: red;
 }
 
 li.schedule-item.starred-game {
@@ -649,7 +660,6 @@ li.schedule-item.next-game::before {
     position: absolute;
     z-index: -1;
     justify-self: center;
-    transform: translateY(-14px);
     width: 2rem;
 }
 

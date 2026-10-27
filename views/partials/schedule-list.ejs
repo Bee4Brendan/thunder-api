@@ -34,8 +34,8 @@
 
 
                     <img id="home-team-logo" src="/images/team-logos/<%= game.home_team.name %>.svg" />
-                    <p id="home-team-score" class="score"><%= game.home_team_score %></p>
-                    <p id="visitor-team-score" class="score"><%= game.visitor_team_score %></p>
+                    <p id="home-team-score" class="score <%= game.home_team_score > game.visitor_team_score ? 'bold' : '' %>"><%= game.home_team_score %></p>
+                    <p id="visitor-team-score" class="score <%= game.visitor_team_score > game.home_team_score ? 'bold' : '' %>"><%= game.visitor_team_score %></p>
                     <img id="visitor-team-logo" src="/images/team-logos/<%= game.visitor_team.name %>.svg" />
                     
                     <p id="home-team-name"><%= game.home_team.name %></p>
@@ -44,7 +44,7 @@
                     <% if (game.isCupGame) { %>
                         <img id="cup-trophy-image" src="/images/cup-trophy.png">
                     <% } %>
-                    <p id="result"><%= game.result %></p>
+                    <p id="result" class="<%= game.result === 'W' ? 'win' : 'loss' %>"><%= game.result %></p>
                 </div>
                 <div class="lower">
                     <div class="bottom-section">
