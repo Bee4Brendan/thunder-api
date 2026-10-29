@@ -645,7 +645,7 @@ li.schedule-item.next-game::before {
 }
 
 #status {
-    font-size: 14px;
+    font-size: 13px;
     grid-column: 2;
     grid-row: 2;
     grid-column: 2 / span 2;
