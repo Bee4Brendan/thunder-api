@@ -40,7 +40,7 @@
                     
                     <p id="home-team-name"><%= game.home_team.name %></p>
                     <p id="visitor-team-name"><%= game.visitor_team.name %></p>
-                    <p id="status"><%= game.status && !game.status.endsWith('Z') ? game.status : '' %> <span id="record">&nbsp;&nbsp;<%= game.wins %> - <%= game.losses %></span></p>
+                    <p id="status"><%- game.status && !game.status.endsWith('Z') ? game.status + "&nbsp;&nbsp;" : '' %> <span id="record"><%= game.wins %> - <%= game.losses %></span></p>
                     <% if (game.isCupGame) { %>
                         <img id="cup-trophy-image" src="/images/cup-trophy.png">
                     <% } %>
