@@ -377,6 +377,7 @@ body {
     background: none;
     border: none;
     font-size: 1.2rem;
+    margin-left: 1rem;
 }
 
 .schedule-filter {
