@@ -145,7 +145,9 @@ async function getThunderSchedule(req, res, next) {
         // mark games as hasBeenPlayed, isStarred, and isThunderHomeGame
         thunderSchedule.forEach((game, index) => {
             // the first game that's in the future is the next game
-            if ((!nextGame && game.date >= todaysDate) || (!game.status.endsWith("Z") && game.status !== "Final")) {
+            console.log("GAME.DATE", game.date);
+            console.log("TODAY'S DATE", todaysDate);
+            if ((!nextGame && game.datetime >= todaysDate) || (!game.status.endsWith("Z") && game.status !== "Final")) {
                 nextGame = true;
                 game.isNextGame = true;
                 thunderSchedule.nextGame = game;
